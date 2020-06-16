@@ -46,7 +46,7 @@ def scrape():
 
     mars_info["featured_image"] = featured_image_url
 
-    # Mars Weather
+    # # Mars Weather
 
     twitter_url ="https://twitter.com/marswxreport?lang=en"
 
@@ -65,15 +65,15 @@ def scrape():
     url_facts = "https://space-facts.com/mars/"
 
     tables = pd.read_html(url_facts)
+
     mars_facts = tables[0]
 
-    mars_facts_HTML = mars_facts.to_html(header = False)
+    mars_facts_HTML = mars_facts.to_html(header = False, index = False)
 
     mars_info["mars_facts_HTML"] = mars_facts_HTML
 
 
-
-    # Mars Hemisphers
+    # # Mars Hemisphers
 
     hemispheres_url = "https://astrogeology.usgs.gov/search/results?q=hemisphere+enhanced&k1=target&v1=Mars"
 
@@ -111,5 +111,3 @@ def scrape():
     browser.quit()
 
     return (mars_info)
-
-scrape()
