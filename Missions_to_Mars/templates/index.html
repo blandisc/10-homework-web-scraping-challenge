@@ -10,23 +10,25 @@
   <!-- Bootstrap CSS -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
     integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link rel="stylesheet" href="style.css" />
 </head>
 
 <body>
 
-  <body class="text-white" style="background-color:black;">
+  <body>
     <div class="container">
 
 
-      <div class="jumbotron text-center" style="background-color: grey; background-size: 100%; height: 100%;">
-        <h1 class="display-6" style="font-size: xxx-large;">Mission to Mars</h1>
-        <a class="btn btn-lg text-white" style="background-color:#c1440e;" href="/scrape" role="button"> Get Data!</a>
+      <div class="jumbotron text-center">
+        <h1 class="display-3">Mission to Mars</h1>
+        <a class="btn btn-lg text-white" style="background-color:#c1440e;" href="/scrape" role="button">
+          Scrape New Data</a>
       </div>
 
 
       <div class="container">
         <h3>Latest Mars News</h3>
-        <h6 style="color: #c1440e">{{ mars_info.news_title }}</h6>
+        <h6 style="color: #c1440e; font-weight: bold;" >{{ mars_info.news_title }}</h6>
         <p>{{ mars_info.news_p }}</p>
       </div>
 
@@ -39,32 +41,32 @@
           </div>
 
           <div class="col-md-4">
-            <h4>Current Weather on Mars</h4>
+            <h4 style="color: black;">Current Weather on Mars</h4>
             <div class="card" style="width: 18rem;">
-              <div class="card-body text-white bg-dark">
-                <p class="card-text">{{ mars_info.mars_weather }}</p>
+              <div class="card-body">
+                <p class="card-text" style="color: black;">{{ mars_info.mars_weather }}</p>
               </div>
 
             </div>
 
-            <br>
-            <h3>Mars Facts</h3>
-            <div class="table-responsive-md">
+            <br> 
+            <h3 style="color: black;">Mars Facts</h3>
+            <div class="table-responsive-md" style="color: black;">
               {{ mars_info.mars_facts_HTML|safe }}
             </div>
           </div>
         </div>
-        <h3 style="padding-top: 50px; margin-top: 100px; text-align: center;">Mars Hemispheres</h3>
+        <hr style="color: red;"><h3 style="padding-top: 50px; margin-top: 100px; text-align: center;">Mars Hemispheres</h3>
         <div class="card-deck">
           <hr>
           <div class="col-md-12">
             <div class="row">
               {% for item in mars_info.h_i_u %}
               <div class="col-md-6">
-                <div class="card text-white bg-dark" style="margin: 30px;">
+                <div class="card text" style="margin: 30px;">
                   <img class="card-img-top" src="{{ item.img_url }}" />
                   <div class="card-body">
-                    <p class="card-text">{{ item.title }}</p>
+                    <p class="card-text" style="text-align: center; font-weight: bold;">{{ item.title }}</p>
                   </div>
                 </div>
               </div>
